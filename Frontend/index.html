@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Premium Calculator</title>
+  </head>
+  <body>
+
+    <div>
+        <button id="btn-english">English</button>
+        <button id="btn-spanish">Español</button>
+        <button id="btn-german">Deutsch</button>
+    </div>
+    
+    <form id="premium-form">
+        <div class="form-block">
+            <label for="birthDate" id="lbl-dob"><span lang="en">Date of Birth</span> <span lang="es">Fecha de Nacimiento</span><span lang="de">Geburtsdatum</span></label>
+            <label for="birthDate" id="lbl-dob-error"><span lang="en">Date of Birth not selected</span> <span lang="es">Fecha de Nacimiento no seleccionada</span><span lang="de">Geburtsdatum nicht ausgewählt</span></label>
+            <input id="birthDate" type="date">
+        </div>
+        <div class="form-block">
+            <label for="state" id="lbl-state"><span lang="en">State</span> <span lang="es">Estado</span><span lang="de">Staadt</span></label>
+            <label for="state" id="lbl-state-error"><span lang="en">State not selected</span> <span lang="es">Estado no seleccionado</span><span lang="de">Staadt nicht ausgewählt</span></label>
+            <select id="state">
+                <option value ="-1">Select/Seleccione/Auswählen</option> 
+            </select>
+            <div id="media-query-separator"></div>
+            <label for="plan" id="lbl-plan" class="move-left"><span lang="en">Plan</span> <span lang="es">Plan</span><span lang="de">Plan</span></label>
+            <label for="plan" id="lbl-plan-error" class="move-left"><span lang="en">Plan not selected</span> <span lang="es">Plan no seleccionado</span><span lang="de">Plan nicht ausgewählt</span></label>
+            <select id="plan">
+                <option value ="-1">Select/Seleccione/Auswählen</option>
+            </select>
+        </div>
+        <div class="form-block">
+            <label for="age" id="lbl-age"><span lang="en">Age</span> <span lang="es">Edad</span><span lang="de">Alter</span></label>
+            <label for="age" id="lbl-age-error"><span lang="en">Age out of range</span> <span lang="es">Edad fuera de rango</span><span lang="de">Alter außerhalb des Bereichs</span></label>
+            <input id="age" type="number" disabled>
+        </div>
+    </form>
+
+    <div class="border">
+    <div class="form-block">
+        <button id="form-btn"><span lang="en">Get Premium</span> <span lang="es">Obtener Premium</span><span lang="de">Premium bekommen</span></button>
+        <label for="period" id="lbl-period"><span lang="en">Period</span> <span lang="es">Periodo</span><span lang="de">Zeitraum</span></label>
+        <label for="period" id="lbl-period-error"><span lang="en">Period not selected</span> <span lang="es">Periodo no seleccionado</span><span lang="de">Zeitraum nicht ausgewählt</span></label>
+        <select id="period">
+            <option value ="-1">Select/Seleccione/Auswählen</option>
+        </select>
+    </div>
+
+    <table id="premium-table">
+        <thead>
+            <tr>
+                <th><span lang="en">Carrier</span> <span lang="es">Carrera</span><span lang="de">Karriere</span></th>
+                <th><span lang="en">Premium</span> <span lang="es">Premium</span><span lang="de">Premium</span></th>
+                <th><span lang="en">Annually</span> <span lang="es">Anual</span><span lang="de">Jährlich</span></th>
+                <th><span lang="en">Monthly</span> <span lang="es">Mensual</span><span lang="de">Monatlich</span></th>
+            </tr>
+        </thead>
+        <tbody id="premium-body">
+        </tbody>
+    </table>
+    </div>
+
+    <script type="text/javascript" src="./js/libs/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./js/language/resources-common.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+#media-query-separator{
+  display: none;
+}
+
+.form-block{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+}
+
+.border{
+    border: 3px black solid;
+    padding: 30px;
+}
+
+#birthDate, #state, #age, #plan{
+    width: 150px;
+}
+
+#birthDate{
+  margin-left: 50px;
+}
+
+#state{
+  margin-left: 105px;
+}
+
+#age{
+  margin-left: 112px;
+}
+
+#plan{
+  margin-left: 50px;
+}
+
+.move-left{
+  margin-left: 30px;
+}
+
+.border .form-block{
+    float: left;
+}
+
+button{
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+}
+button:hover{
+    background-color: white;
+    color: black;
+    border: 1 px black;
+}
+
+#lbl-dob-error, #lbl-state-error, #lbl-age-error, #lbl-plan-error, #lbl-period-error{
+  font-size: 12px;
+  color: red;
+  position: fixed;
+  margin-left: 215px;
+}
+
+#lbl-plan-error{
+  margin-left: 485px;
+}
+
+#lbl-period-error{
+  margin-left: 200px;
+}
+
+/* spacing */
+
+table {
+    margin-left: 400px;
+    table-layout: fixed;
+    width: 60%;
+    border-collapse: collapse;
+  }
+  
+  thead th:nth-child(1) {
+    width: 30%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 35%;
+  }
+  
+  th, td {
+    padding: 20px;
+  }
+
+  thead th{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  th {
+    letter-spacing: 2px;
+  }
+  
+  tbody tr td {
+    text-align: center;
+    border: 1px black solid;
+  }
+
+  @media (max-width: 1000px) {
+
+    #media-query-separator{
+      display: block;
+    }
+
+    #lbl-plan-error{
+      margin-left: 215px;
+      margin-top: 0;
+    }
+
+    #plan{
+      margin-top: 20px;
+      margin-left: 175px;
+    }
+    
+    .move-left{
+      margin-left: 0;
+      margin-top: 20px;
+    }
+
+    table{
+      margin-left: 0;
+      width: 100%;
+    }
+
+    thead th:nth-child(1) {
+      width: 15%;
+    }
+    
+    thead th:nth-child(2) {
+      width: 20%;
+    }
+    
+    thead th:nth-child(3) {
+      width: 15%;
+    }
+    
+    thead th:nth-child(4) {
+      width: 17.5%;
+    }
+  }
