@@ -1,4 +1,3 @@
-
 $(document).ready(() =>{
 
 if(userLang === undefined) var userLang = navigator.language || navigator.userLanguage;
@@ -170,6 +169,11 @@ var populatePage = (userLang)=>{
         $("#btn-german").css("color","black");
         $("#state").css("margin-left","155px");
         $("#age").css("margin-left","167px");
+        $("#lbl-dob-error").css("margin-left", "215px");
+        $("#lbl-state-error").css("margin-left", "215px");
+        $("#lbl-plan-error").css("margin-left", "485px");
+        $("#lbl-age-error").css("margin-left", "215px");
+        $("#lbl-period-error").css("margin-left", "200px");
         
     } else if(userLang === "de"){
         document.title = title_de;
@@ -180,6 +184,11 @@ var populatePage = (userLang)=>{
         $("#btn-spanish").css("color","black");
         $("#state").css("margin-left","112px");
         $("#age").css("margin-left","122");
+        $("#lbl-dob-error").css("margin-left", "160px");
+        $("#lbl-state-error").css("margin-left", "160px");
+        $("#lbl-plan-error").css("margin-left", "440px");
+        $("#lbl-age-error").css("margin-left", "160px");
+        $("#lbl-period-error").css("margin-left", "230px");
     }else{
         document.title = title_en;
         $('[lang="en"]').show();
@@ -189,6 +198,11 @@ var populatePage = (userLang)=>{
         $("#btn-german").css("color","black");
         $("#state").css("margin-left","105px");
         $("#age").css("margin-left","112px");
+        $("#lbl-dob-error").css("margin-left", "150px");
+        $("#lbl-state-error").css("margin-left", "150px");
+        $("#lbl-plan-error").css("margin-left", "420px");
+        $("#lbl-age-error").css("margin-left", "150px");
+        $("#lbl-period-error").css("margin-left", "160px");
     }
 
     $("#lbl-dob-error").css("display","none");
@@ -197,9 +211,9 @@ var populatePage = (userLang)=>{
     $("#lbl-plan-error").css("display","none");
     $("#lbl-period-error").css("display","none");
 
-    fillSelect(urlStates, "#state", userLang);
-    fillSelect(urlPeriods, "#period", userLang);
-    fillSelect(urlPlans, "#plan", userLang);
+    fillSelect(urlStates, "#state", userLang, "-1");
+    fillSelect(urlPeriods, "#period", userLang, "-1");
+    fillSelect(urlPlans, "#plan", userLang, "-1");
 }
 
 var changeLanguageButtons = ()=>{
@@ -216,6 +230,11 @@ var changeLanguageButtons = ()=>{
         $("#btn-english").css("color","white");
         $("#state").css("margin-left","105px");
         $("#age").css("margin-left","112px");
+        $("#lbl-dob-error").css("margin-left", "150px");
+        $("#lbl-state-error").css("margin-left", "150px");
+        $("#lbl-plan-error").css("margin-left", "420px");
+        $("#lbl-age-error").css("margin-left", "150px");
+        $("#lbl-period-error").css("margin-left", "160px");
         
         userLang = "en";
         fillSelect(urlStates, "#state", userLang);
@@ -235,6 +254,12 @@ var changeLanguageButtons = ()=>{
         $("#btn-spanish").css("color","white");
         $("#state").css("margin-left","155px");
         $("#age").css("margin-left","167px");
+        $("#lbl-dob-error").css("margin-left", "215px");
+        $("#lbl-state-error").css("margin-left", "215px");
+        $("#lbl-plan-error").css("margin-left", "485px");
+        $("#lbl-age-error").css("margin-left", "215px");
+        $("#lbl-period-error").css("margin-left", "200px");
+        
         userLang = "es";
         fillSelect(urlStates, "#state", userLang);
         fillSelect(urlPeriods, "#period", userLang);
@@ -253,6 +278,12 @@ var changeLanguageButtons = ()=>{
         $("#btn-german").css("color","white");
         $("#state").css("margin-left","112px");
         $("#age").css("margin-left","122px");
+        $("#lbl-dob-error").css("margin-left", "160px");
+        $("#lbl-state-error").css("margin-left", "160px");
+        $("#lbl-plan-error").css("margin-left", "440px");
+        $("#lbl-age-error").css("margin-left", "160px");
+        $("#lbl-period-error").css("margin-left", "230px");
+        
         userLang = "de";
         fillSelect(urlStates, "#state", userLang);
         fillSelect(urlPeriods, "#period", userLang);
@@ -263,11 +294,16 @@ var changeLanguageButtons = ()=>{
 var onChangeInputFields = ()=>{
 
     $("#birthDate").change(()=>{
+        let dob = new Date($("#birthDate").val());
+        let now = new Date();
+
         $("#lbl-dob-error").css("display","none");
         $("#lbl-age-error").css("display","none");
         $("#age").val(calculateAge($("#birthDate").val()));
-        if($("#birthDate").val() === ""){
+        if($("#birthDate").val() === "" || dob.getUTCFullYear() > now.getUTCFullYear()){
             $("#lbl-dob-error").css("display","block");
+            $("#birthDate").val("dd/mm/aaaa");
+            $("#age").val("0");
         }
         if($("#age").val() <18 || $("#age").val() > 120){
             $("#lbl-age-error").css("display","block");
