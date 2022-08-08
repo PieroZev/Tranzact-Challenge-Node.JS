@@ -24,7 +24,7 @@ var premiumPrice = new Array();
 
         try{
             body.birthDate = data.split("&")[0].split("=")[1];
-            body.state = data.split("&")[1].split("=")[1];
+            body.state = data.split("&")[1].split("=")[1].split("+")[0] + " " + data.split("&")[1].split("=")[1].split("+")[1];
             body.age = data.split("&")[2].split("=")[1];
             body.plan = data.split("&")[3].split("=")[1];
         }catch(e){
